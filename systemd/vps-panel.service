@@ -1,0 +1,12 @@
+[Unit]
+Description=VPS Management Panel
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/opt/vps-panel/backend
+ExecStart=/opt/vps-panel/venv/bin/gunicorn --bind 127.0.0.1:5000 app:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
